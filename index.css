@@ -1,0 +1,218 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.video-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    background-size: cover;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    transition: filter 0.5s ease;
+}
+
+
+.action-container{
+    height: 12rem;
+    width: 5rem;
+    position: absolute;
+    top: calc((100vh - 12rem) / 2);
+    right: 5rem; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;  
+}
+
+.action-container > *{
+    height: 5rem;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.record-btn{
+    background-color: red;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.capture-btn{
+    background-color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.scale-for-record{
+    animation-name: scale-for-record;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scale-for-record{
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+.scale-for-capture{
+    animation-name: scale-for-capture;
+    animation-duration: 0.5s;
+    animation-iteration-count: 2;
+}
+
+@keyframes scale-for-capture{
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+.timer-container{
+    height: 15rem;
+    width: 5rem;
+    position: absolute;
+    font-size: 1rem ;
+    top: 5rem;
+    left: 2rem;
+    color: blanchedalmond;
+}
+
+
+.timer{
+    display: none;
+}
+
+.style{
+    color: beige;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.filter-cont{
+    height: 16rem;
+    width: 5rem;
+    position: absolute;
+    top: calc((100vh - 16rem)/2);
+    left: 5rem;
+    z-index: 2;
+    background-color: antiquewhite;
+}
+
+.filter{
+    background-image: url("https://wallpaperaccess.com/full/96518.jpg");
+    height: 5rem;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-blend-mode:color-burn;
+    
+    
+}
+
+.filter-layer{
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.orange{
+    background-color:#f4a0079e;
+}
+
+.vintage{
+   filter: grayscale(0.5);
+   
+}
+.pink{
+    background-color: #e967c0bd;
+}
+.transparent{
+    background-color: transparent;
+}
+
+.video-filter-orange {
+    filter: sepia(0.4) saturate(1.2) brightness(1.1) hue-rotate(10deg);
+}
+
+.video-filter-vintage {
+    filter: grayscale(0.5) contrast(1.2);
+}
+
+.video-filter-pink {
+    filter: hue-rotate(300deg) saturate(1.5);
+}
+
+.video-filter-none {
+    filter: none;
+}
+
+
+
+
+.record-btn-container:hover, 
+.capture-btn-container:hover, 
+.filter:hover {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+
+.cursor-glow {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    pointer-events:none;
+    border-radius: 50%;
+    background: radial-gradient(circle, whitesmoke, transparent 80%);
+    mix-blend-mode: overlay;
+    z-index: 1000;
+  }
+
+  .cursor-dot, .cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.cursor-trail {
+    width: 25px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: transform 0.2s ease;
+}
