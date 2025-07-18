@@ -47,6 +47,8 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
 
     // Capturing canvas stream (30fps)
     canvasStream = canvas.captureStream(30);
+    canvasStream.addTrack(stream.getAudioTracks()[0]);
+
     recorder = new MediaRecorder(canvasStream);
 
     recorder.addEventListener("start", () => { chunks = []; });
