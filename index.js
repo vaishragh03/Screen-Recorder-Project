@@ -19,7 +19,7 @@ let ctx = canvas.getContext("2d");
 let canvasStream;
 
 // Getting user media & setup
-navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+navigator.mediaDevices.getUserMedia({ video: true, audio: true })
 .then((stream) => {
     video.srcObject = stream;
 
